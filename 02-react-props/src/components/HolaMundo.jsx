@@ -1,6 +1,10 @@
+import './HolaMundo.css'
 const HolaMundo = ({nombre, apellido}) => {
   return (
-    <h2>Hola {nombre} {apellido}</h2>
+    <>
+        <h2 className='saludo' style={{fontSize:'50px', border:'solid black'}}>Hola {nombre} {apellido}</h2>
+        <p>Hola mundo</p>
+    </>
   )
 }
 export default HolaMundo
