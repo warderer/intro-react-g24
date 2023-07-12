@@ -38,7 +38,7 @@ const ToDoList = () => {
         {todos.map((todo, index) => (
           <ToDoItem
             key={index}
-            todo={todo}
+            todoText={todo}
             handleDelete={() => handleDeleteItem(index)}
           />
         ))}

@@ -1,6 +1,6 @@
-const ToDoItem = ({ todo, handleDelete }) => {
+const ToDoItem = ({ todoText, handleDelete }) => {
   return (
-    <li>{todo}
+    <li>{todoText}
       <button
         className='delete-button'
         onClick={handleDelete}
