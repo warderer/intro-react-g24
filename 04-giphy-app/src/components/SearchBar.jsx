@@ -13,7 +13,7 @@ const SearchBar = ({ handleSearch }) => {
       />
       <button
         className='search-button'
-        onClick={handleSearch}
+        onClick={() => handleSearch(search)}
       >
         Buscar
       </button>
