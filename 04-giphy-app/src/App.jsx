@@ -1,8 +1,10 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from 'react'
+import ImageCards from './components/ImageCards'
 import './App.css'
 
 function App () {
-  const [gifs, setSGifs] = useState([])
+  const [gifs, setGifs] = useState([])
   const APIKEY = import.meta.env.VITE_GIPHY_APP_KEY
 
   // Las llamadas a API ocurren normalmente en el useEffect
@@ -11,7 +13,7 @@ function App () {
       .then(res => res.json())// recibo mi respuesta copleta
       .then(results => {
         const { data } = results
-        setSGifs(data)
+        setGifs(data)
       }).catch(err => console.log(err))
   }, [])
 
@@ -19,6 +21,17 @@ function App () {
     <>
       <div>
         <h1 className='title'>Giphy App</h1>
+        <div className='grid-cards'>
+          {
+            gifs.map(gif => (
+              <ImageCards
+                url={gif.images.fixed_height.url}
+                title={gif.title}
+                key={gif.id}
+              />
+            ))
+          }
+        </div>
       </div>
     </>
   )
