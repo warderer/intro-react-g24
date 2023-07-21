@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 
 const Home = () => {
   const [pokemons, setPokemons] = useState([]) // Lista de pokemones
+  const [search, setSearch] = useState('')
 
   // Llamada a la api de pokemones
   useEffect(() => {
@@ -12,10 +13,23 @@ const Home = () => {
   }
   , [])
 
+  const handleSearch = (event) => {
+    setSearch(event.target.value)
+  }
+
   return (
     <>
       <div className='container'>
         <h1>Home</h1>
+        <form className='form-inline my-2 w-100'>
+          <input
+            type='text'
+            className='form-control'
+            placeholder='Buscar pokemon'
+            value={search}
+            onChange={handleSearch}
+          />
+        </form>
         <div className='row'>
           {
             pokemons.map(pokemon => (
